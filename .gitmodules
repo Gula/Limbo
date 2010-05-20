@@ -1,0 +1,21 @@
+[submodule "plugins/sfDoctrineMooDooPlugin"]
+	path = plugins/sfDoctrineMooDooPlugin
+	url = http://github.com/RetroFOX/sfDoctrineMooDooPlugin.git
+[submodule "plugins/sfDoctrineGuardPlugin"]
+	path = plugins/sfDoctrineGuardPlugin
+	url = http://github.com/annismckenzie/sfDoctrineGuardPlugin.git
+[submodule "plugins/sfLessPhpPlugin"]
+	path = plugins/sfLessPhpPlugin
+	url = http://github.com/everzet/sfLessPhpPlugin.git
+[submodule "plugins/sfFormExtraPlugin"]
+	path = plugins/sfFormExtraPlugin
+	url = http://github.com/davidsblom/sfFormExtraPlugin.git
+[submodule "plugins/sfTCPDFPlugin"]
+	path = plugins/sfTCPDFPlugin
+	url = http://github.com/davidsblom/sfTCPDFPlugin.git
+[submodule "lib/vendor/symfony"]
+	path = lib/vendor/symfony
+	url = http://github.com/davidsblom/symfony-1.4.git
+[submodule "plugins/sfImageTransformPlugin"]
+	path = plugins/sfImageTransformPlugin
+	url = http://github.com/diem-project/sfImageTransformPlugin.git
