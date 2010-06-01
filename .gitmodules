@@ -13,9 +13,9 @@
 [submodule "plugins/sfTCPDFPlugin"]
 	path = plugins/sfTCPDFPlugin
 	url = http://github.com/davidsblom/sfTCPDFPlugin.git
-[submodule "lib/vendor/symfony"]
-	path = lib/vendor/symfony
-	url = http://github.com/davidsblom/symfony-1.4.git
 [submodule "plugins/sfImageTransformPlugin"]
 	path = plugins/sfImageTransformPlugin
 	url = http://github.com/diem-project/sfImageTransformPlugin.git
+[submodule "lib/vendor/symfony"]
+	path = lib/vendor/symfony
+	url = git://github.com/davidsblom/symfony-1.4.git
