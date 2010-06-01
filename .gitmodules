@@ -19,3 +19,6 @@
 [submodule "plugins/sfImageTransformPlugin"]
 	path = plugins/sfImageTransformPlugin
 	url = http://github.com/diem-project/sfImageTransformPlugin.git
+[submodule "plugins/sfMooDooGalleryPlugin"]
+	path = plugins/sfMooDooGalleryPlugin
+	url = git://github.com/RetroFOX/sfMooDooGalleryPlugin.git
