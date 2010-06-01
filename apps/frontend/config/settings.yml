@@ -31,6 +31,8 @@ all:
     escaping_strategy:      true
     escaping_method:        ESC_SPECIALCHARS
 
+    enabled_modules:        [sfMooDooUser, mgGallery, mgPhoto]
+
     # Enable the database manager
     use_database:           true
     

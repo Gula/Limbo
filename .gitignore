@@ -1,3 +1,9 @@
 cache/*
 log/*
 config/databases.yml
+
+#uploads
+web/uploads/*
+
+#mooDooGallery
+web/images/mooDooGallery/*

@@ -1,3 +1,12 @@
+<<<<<<< HEAD:data/sql/schema.sql
+=======
+CREATE TABLE mdgalledy_album (id BIGINT AUTO_INCREMENT, author_id INT, title VARCHAR(100) NOT NULL, description LONGTEXT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE mdgalledy_album_gallery (id BIGINT AUTO_INCREMENT, gallery_id BIGINT, album_id BIGINT, INDEX album_id_idx (album_id), INDEX gallery_id_idx (gallery_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE mdgalledy_category (id BIGINT AUTO_INCREMENT, title VARCHAR(100) NOT NULL, description LONGTEXT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE mdgalledy_gallery (id BIGINT AUTO_INCREMENT, author_id INT, title VARCHAR(100) NOT NULL, description LONGTEXT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE mdgalledy_gallery_photo (id BIGINT AUTO_INCREMENT, gallery_id BIGINT, photo_id BIGINT, INDEX gallery_id_idx (gallery_id), INDEX photo_id_idx (photo_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE mdgalledy_photo (id BIGINT AUTO_INCREMENT, author_id INT, title VARCHAR(100) NOT NULL, description LONGTEXT, photo VARCHAR(255) NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
+>>>>>>> 17ef5c46e5bef215d27edb1035336323e4129c9c:data/sql/schema.sql
 CREATE TABLE sf_guard_forgot_password (id BIGINT AUTO_INCREMENT, user_id BIGINT NOT NULL, unique_key VARCHAR(255), expires_at DATETIME NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_group (id BIGINT AUTO_INCREMENT, name VARCHAR(255) UNIQUE, description TEXT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_group_permission (group_id BIGINT, permission_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(group_id, permission_id)) ENGINE = INNODB;
@@ -6,6 +15,13 @@ CREATE TABLE sf_guard_remember_key (id BIGINT AUTO_INCREMENT, user_id BIGINT, re
 CREATE TABLE sf_guard_user (id BIGINT AUTO_INCREMENT, first_name VARCHAR(255), last_name VARCHAR(255), email_address VARCHAR(255) NOT NULL UNIQUE, username VARCHAR(128) NOT NULL UNIQUE, algorithm VARCHAR(128) DEFAULT 'sha1' NOT NULL, salt VARCHAR(128), password VARCHAR(128), is_active TINYINT(1) DEFAULT '1', is_super_admin TINYINT(1) DEFAULT '0', last_login DATETIME, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX is_active_idx_idx (is_active), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_user_group (user_id BIGINT, group_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(user_id, group_id)) ENGINE = INNODB;
 CREATE TABLE sf_guard_user_permission (user_id BIGINT, permission_id BIGINT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(user_id, permission_id)) ENGINE = INNODB;
+<<<<<<< HEAD:data/sql/schema.sql
+=======
+ALTER TABLE mdgalledy_album_gallery ADD CONSTRAINT mdgalledy_album_gallery_gallery_id_mdgalledy_gallery_id FOREIGN KEY (gallery_id) REFERENCES mdgalledy_gallery(id) ON DELETE CASCADE;
+ALTER TABLE mdgalledy_album_gallery ADD CONSTRAINT mdgalledy_album_gallery_album_id_mdgalledy_album_id FOREIGN KEY (album_id) REFERENCES mdgalledy_album(id) ON DELETE CASCADE;
+ALTER TABLE mdgalledy_gallery_photo ADD CONSTRAINT mdgalledy_gallery_photo_photo_id_mdgalledy_photo_id FOREIGN KEY (photo_id) REFERENCES mdgalledy_photo(id) ON DELETE CASCADE;
+ALTER TABLE mdgalledy_gallery_photo ADD CONSTRAINT mdgalledy_gallery_photo_gallery_id_mdgalledy_gallery_id FOREIGN KEY (gallery_id) REFERENCES mdgalledy_gallery(id) ON DELETE CASCADE;
+>>>>>>> 17ef5c46e5bef215d27edb1035336323e4129c9c:data/sql/schema.sql
 ALTER TABLE sf_guard_forgot_password ADD CONSTRAINT sf_guard_forgot_password_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
 ALTER TABLE sf_guard_group_permission ADD CONSTRAINT sf_guard_group_permission_permission_id_sf_guard_permission_id FOREIGN KEY (permission_id) REFERENCES sf_guard_permission(id) ON DELETE CASCADE;
 ALTER TABLE sf_guard_group_permission ADD CONSTRAINT sf_guard_group_permission_group_id_sf_guard_group_id FOREIGN KEY (group_id) REFERENCES sf_guard_group(id) ON DELETE CASCADE;

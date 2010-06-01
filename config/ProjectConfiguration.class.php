@@ -9,6 +9,7 @@ class ProjectConfiguration extends sfProjectConfiguration
   {
     $this->enablePlugins(
       'sfDoctrinePlugin',
+<<<<<<< HEAD:config/ProjectConfiguration.class.php
       'sfFormExtraPlugin',
       'sfDoctrineGuardPlugin',
       'sfLessPhpPlugin',
@@ -17,6 +18,15 @@ class ProjectConfiguration extends sfProjectConfiguration
       //'sfMooDooGalleryPlugin',
       'sfDoctrineMooDooPlugin'
     
+=======
+      'sfDoctrineGuardPlugin',
+      'sfDoctrineMooDooPlugin',
+//      'sfLessPhpPlugin',
+//      'sfFormExtraPlugin',
+//      'sfTCPDFPlugin',
+      'sfImageTransformPlugin',
+      'sfMooDooGalleryPlugin'
+>>>>>>> 17ef5c46e5bef215d27edb1035336323e4129c9c:config/ProjectConfiguration.class.php
     );
   }
 }

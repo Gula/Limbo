@@ -3,10 +3,17 @@
 /**
  * sfGuardGroup filter form base class.
  *
+<<<<<<< HEAD:lib/filter/doctrine/sfDoctrineGuardPlugin/base/BasesfGuardGroupFormFilter.class.php
  * @package    sf_sandbox
  * @subpackage filter
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
+=======
+ * @package    limbo
+ * @subpackage filter
+ * @author     Damian Suarez / Laura Melo
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
+>>>>>>> 17ef5c46e5bef215d27edb1035336323e4129c9c:lib/filter/doctrine/sfDoctrineGuardPlugin/base/BasesfGuardGroupFormFilter.class.php
  */
 abstract class BasesfGuardGroupFormFilter extends BaseFormFilterDoctrine
 {
@@ -51,10 +58,15 @@ abstract class BasesfGuardGroupFormFilter extends BaseFormFilterDoctrine
       return;
     }
 
+<<<<<<< HEAD:lib/filter/doctrine/sfDoctrineGuardPlugin/base/BasesfGuardGroupFormFilter.class.php
     $query
       ->leftJoin($query->getRootAlias().'.sfGuardUserGroup sfGuardUserGroup')
       ->andWhereIn('sfGuardUserGroup.user_id', $values)
     ;
+=======
+    $query->leftJoin('r.sfGuardUserGroup sfGuardUserGroup')
+          ->andWhereIn('sfGuardUserGroup.user_id', $values);
+>>>>>>> 17ef5c46e5bef215d27edb1035336323e4129c9c:lib/filter/doctrine/sfDoctrineGuardPlugin/base/BasesfGuardGroupFormFilter.class.php
   }
 
   public function addPermissionsListColumnQuery(Doctrine_Query $query, $field, $values)
@@ -69,10 +81,15 @@ abstract class BasesfGuardGroupFormFilter extends BaseFormFilterDoctrine
       return;
     }
 
+<<<<<<< HEAD:lib/filter/doctrine/sfDoctrineGuardPlugin/base/BasesfGuardGroupFormFilter.class.php
     $query
       ->leftJoin($query->getRootAlias().'.sfGuardGroupPermission sfGuardGroupPermission')
       ->andWhereIn('sfGuardGroupPermission.permission_id', $values)
     ;
+=======
+    $query->leftJoin('r.sfGuardGroupPermission sfGuardGroupPermission')
+          ->andWhereIn('sfGuardGroupPermission.permission_id', $values);
+>>>>>>> 17ef5c46e5bef215d27edb1035336323e4129c9c:lib/filter/doctrine/sfDoctrineGuardPlugin/base/BasesfGuardGroupFormFilter.class.php
   }
 
   public function getModelName()

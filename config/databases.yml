@@ -4,4 +4,8 @@ all:
     param:
       dsn: 'mysql:host=localhost;dbname=limbo'
       username: root
+<<<<<<< HEAD:config/databases.yml
       password: alfilasesino
+=======
+      password: alfilasesino
+>>>>>>> 17ef5c46e5bef215d27edb1035336323e4129c9c:config/databases.yml

@@ -5,10 +5,17 @@
  *
  * @method sfGuardUser getObject() Returns the current form's model object
  *
+<<<<<<< HEAD:lib/form/doctrine/sfDoctrineGuardPlugin/base/BasesfGuardUserForm.class.php
  * @package    sf_sandbox
  * @subpackage form
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
+=======
+ * @package    limbo
+ * @subpackage form
+ * @author     Damian Suarez / Laura Melo
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
+>>>>>>> 17ef5c46e5bef215d27edb1035336323e4129c9c:lib/form/doctrine/sfDoctrineGuardPlugin/base/BasesfGuardUserForm.class.php
  */
 abstract class BasesfGuardUserForm extends BaseFormDoctrine
 {
@@ -33,7 +40,11 @@ abstract class BasesfGuardUserForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
+<<<<<<< HEAD:lib/form/doctrine/sfDoctrineGuardPlugin/base/BasesfGuardUserForm.class.php
       'id'               => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+=======
+      'id'               => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
+>>>>>>> 17ef5c46e5bef215d27edb1035336323e4129c9c:lib/form/doctrine/sfDoctrineGuardPlugin/base/BasesfGuardUserForm.class.php
       'first_name'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'last_name'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'email_address'    => new sfValidatorString(array('max_length' => 255)),

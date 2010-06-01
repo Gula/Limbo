@@ -16,6 +16,12 @@
 [submodule "plugins/sfImageTransformPlugin"]
 	path = plugins/sfImageTransformPlugin
 	url = http://github.com/diem-project/sfImageTransformPlugin.git
+<<<<<<< HEAD:.gitmodules
 [submodule "lib/vendor/symfony"]
 	path = lib/vendor/symfony
 	url = git://github.com/davidsblom/symfony-1.4.git
+=======
+[submodule "plugins/sfMooDooGalleryPlugin"]
+	path = plugins/sfMooDooGalleryPlugin
+	url = git://github.com/RetroFOX/sfMooDooGalleryPlugin.git
+>>>>>>> 17ef5c46e5bef215d27edb1035336323e4129c9c:.gitmodules
