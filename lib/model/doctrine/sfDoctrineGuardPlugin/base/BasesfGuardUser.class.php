@@ -18,6 +18,9 @@
  * @property Doctrine_Collection $sfGuardUserPermission
  * @property Doctrine_Collection $sfGuardUserGroup
  * @property sfGuardRememberKey $RememberKeys
+ * @property Doctrine_Collection $MGAlbum
+ * @property Doctrine_Collection $MGGallery
+ * @property Doctrine_Collection $MGPhoto
  * @property Profile $Profile
  * 
  * @method integer             getId()                    Returns the current record's "id" value
@@ -33,6 +36,9 @@
  * @method Doctrine_Collection getSfGuardUserPermission() Returns the current record's "sfGuardUserPermission" collection
  * @method Doctrine_Collection getSfGuardUserGroup()      Returns the current record's "sfGuardUserGroup" collection
  * @method sfGuardRememberKey  getRememberKeys()          Returns the current record's "RememberKeys" value
+ * @method Doctrine_Collection getMGAlbum()               Returns the current record's "MGAlbum" collection
+ * @method Doctrine_Collection getMGGallery()             Returns the current record's "MGGallery" collection
+ * @method Doctrine_Collection getMGPhoto()               Returns the current record's "MGPhoto" collection
  * @method Profile             getProfile()               Returns the current record's "Profile" value
  * @method sfGuardUser         setId()                    Sets the current record's "id" value
  * @method sfGuardUser         setUsername()              Sets the current record's "username" value
@@ -47,6 +53,9 @@
  * @method sfGuardUser         setSfGuardUserPermission() Sets the current record's "sfGuardUserPermission" collection
  * @method sfGuardUser         setSfGuardUserGroup()      Sets the current record's "sfGuardUserGroup" collection
  * @method sfGuardUser         setRememberKeys()          Sets the current record's "RememberKeys" value
+ * @method sfGuardUser         setMGAlbum()               Sets the current record's "MGAlbum" collection
+ * @method sfGuardUser         setMGGallery()             Sets the current record's "MGGallery" collection
+ * @method sfGuardUser         setMGPhoto()               Sets the current record's "MGPhoto" collection
  * @method sfGuardUser         setProfile()               Sets the current record's "Profile" value
  * 
  * @package    limbo
@@ -130,6 +139,18 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
         $this->hasOne('sfGuardRememberKey as RememberKeys', array(
              'local' => 'id',
              'foreign' => 'user_id'));
+
+        $this->hasMany('MGAlbum', array(
+             'local' => 'id',
+             'foreign' => 'author_id'));
+
+        $this->hasMany('MGGallery', array(
+             'local' => 'id',
+             'foreign' => 'author_id'));
+
+        $this->hasMany('MGPhoto', array(
+             'local' => 'id',
+             'foreign' => 'author_id'));
 
         $this->hasOne('Profile', array(
              'local' => 'id',

@@ -6,7 +6,7 @@
  * @package    limbo
  * @subpackage filter
  * @author     Damian Suarez / Laura Melo
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
 abstract class BasesfGuardUserFormFilter extends BaseFormFilterDoctrine
 {
@@ -61,10 +61,8 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterDoctrine
       return;
     }
 
-    $query
-      ->leftJoin($query->getRootAlias().'.sfGuardUserGroup sfGuardUserGroup')
-      ->andWhereIn('sfGuardUserGroup.group_id', $values)
-    ;
+    $query->leftJoin('r.sfGuardUserGroup sfGuardUserGroup')
+          ->andWhereIn('sfGuardUserGroup.group_id', $values);
   }
 
   public function addPermissionsListColumnQuery(Doctrine_Query $query, $field, $values)
@@ -79,10 +77,8 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterDoctrine
       return;
     }
 
-    $query
-      ->leftJoin($query->getRootAlias().'.sfGuardUserPermission sfGuardUserPermission')
-      ->andWhereIn('sfGuardUserPermission.permission_id', $values)
-    ;
+    $query->leftJoin('r.sfGuardUserPermission sfGuardUserPermission')
+          ->andWhereIn('sfGuardUserPermission.permission_id', $values);
   }
 
   public function getModelName()

@@ -8,64 +8,49 @@
  * @property integer $id
  * @property integer $sf_guard_user_id
  * @property integer $membership_number
- * @property integer $bank_id
  * @property string $first_name
  * @property string $last_name
  * @property date $birth_date
  * @property enum $documment_type
  * @property string $documment_number
- * @property boolean $is_membership
  * @property string $phone
  * @property string $movil
  * @property string $email
  * @property string $addres
  * @property string $addres_2
  * @property integer $locality_id
- * @property integer $state_id
  * @property sfGuardUser $sfGuardUser
- * @property Bank $Bank
- * @property Doctrine_Collection $Bills
  * 
- * @method integer             getId()                Returns the current record's "id" value
- * @method integer             getSfGuardUserId()     Returns the current record's "sf_guard_user_id" value
- * @method integer             getMembershipNumber()  Returns the current record's "membership_number" value
- * @method integer             getBankId()            Returns the current record's "bank_id" value
- * @method string              getFirstName()         Returns the current record's "first_name" value
- * @method string              getLastName()          Returns the current record's "last_name" value
- * @method date                getBirthDate()         Returns the current record's "birth_date" value
- * @method enum                getDocummentType()     Returns the current record's "documment_type" value
- * @method string              getDocummentNumber()   Returns the current record's "documment_number" value
- * @method boolean             getIsMembership()      Returns the current record's "is_membership" value
- * @method string              getPhone()             Returns the current record's "phone" value
- * @method string              getMovil()             Returns the current record's "movil" value
- * @method string              getEmail()             Returns the current record's "email" value
- * @method string              getAddres()            Returns the current record's "addres" value
- * @method string              getAddres2()           Returns the current record's "addres_2" value
- * @method integer             getLocalityId()        Returns the current record's "locality_id" value
- * @method integer             getStateId()           Returns the current record's "state_id" value
- * @method sfGuardUser         getSfGuardUser()       Returns the current record's "sfGuardUser" value
- * @method Bank                getBank()              Returns the current record's "Bank" value
- * @method Doctrine_Collection getBills()             Returns the current record's "Bills" collection
- * @method Profile             setId()                Sets the current record's "id" value
- * @method Profile             setSfGuardUserId()     Sets the current record's "sf_guard_user_id" value
- * @method Profile             setMembershipNumber()  Sets the current record's "membership_number" value
- * @method Profile             setBankId()            Sets the current record's "bank_id" value
- * @method Profile             setFirstName()         Sets the current record's "first_name" value
- * @method Profile             setLastName()          Sets the current record's "last_name" value
- * @method Profile             setBirthDate()         Sets the current record's "birth_date" value
- * @method Profile             setDocummentType()     Sets the current record's "documment_type" value
- * @method Profile             setDocummentNumber()   Sets the current record's "documment_number" value
- * @method Profile             setIsMembership()      Sets the current record's "is_membership" value
- * @method Profile             setPhone()             Sets the current record's "phone" value
- * @method Profile             setMovil()             Sets the current record's "movil" value
- * @method Profile             setEmail()             Sets the current record's "email" value
- * @method Profile             setAddres()            Sets the current record's "addres" value
- * @method Profile             setAddres2()           Sets the current record's "addres_2" value
- * @method Profile             setLocalityId()        Sets the current record's "locality_id" value
- * @method Profile             setStateId()           Sets the current record's "state_id" value
- * @method Profile             setSfGuardUser()       Sets the current record's "sfGuardUser" value
- * @method Profile             setBank()              Sets the current record's "Bank" value
- * @method Profile             setBills()             Sets the current record's "Bills" collection
+ * @method integer     getId()                Returns the current record's "id" value
+ * @method integer     getSfGuardUserId()     Returns the current record's "sf_guard_user_id" value
+ * @method integer     getMembershipNumber()  Returns the current record's "membership_number" value
+ * @method string      getFirstName()         Returns the current record's "first_name" value
+ * @method string      getLastName()          Returns the current record's "last_name" value
+ * @method date        getBirthDate()         Returns the current record's "birth_date" value
+ * @method enum        getDocummentType()     Returns the current record's "documment_type" value
+ * @method string      getDocummentNumber()   Returns the current record's "documment_number" value
+ * @method string      getPhone()             Returns the current record's "phone" value
+ * @method string      getMovil()             Returns the current record's "movil" value
+ * @method string      getEmail()             Returns the current record's "email" value
+ * @method string      getAddres()            Returns the current record's "addres" value
+ * @method string      getAddres2()           Returns the current record's "addres_2" value
+ * @method integer     getLocalityId()        Returns the current record's "locality_id" value
+ * @method sfGuardUser getSfGuardUser()       Returns the current record's "sfGuardUser" value
+ * @method Profile     setId()                Sets the current record's "id" value
+ * @method Profile     setSfGuardUserId()     Sets the current record's "sf_guard_user_id" value
+ * @method Profile     setMembershipNumber()  Sets the current record's "membership_number" value
+ * @method Profile     setFirstName()         Sets the current record's "first_name" value
+ * @method Profile     setLastName()          Sets the current record's "last_name" value
+ * @method Profile     setBirthDate()         Sets the current record's "birth_date" value
+ * @method Profile     setDocummentType()     Sets the current record's "documment_type" value
+ * @method Profile     setDocummentNumber()   Sets the current record's "documment_number" value
+ * @method Profile     setPhone()             Sets the current record's "phone" value
+ * @method Profile     setMovil()             Sets the current record's "movil" value
+ * @method Profile     setEmail()             Sets the current record's "email" value
+ * @method Profile     setAddres()            Sets the current record's "addres" value
+ * @method Profile     setAddres2()           Sets the current record's "addres_2" value
+ * @method Profile     setLocalityId()        Sets the current record's "locality_id" value
+ * @method Profile     setSfGuardUser()       Sets the current record's "sfGuardUser" value
  * 
  * @package    limbo
  * @subpackage model
@@ -87,9 +72,6 @@ abstract class BaseProfile extends sfDoctrineRecord
              'length' => 4,
              ));
         $this->hasColumn('membership_number', 'integer', null, array(
-             'type' => 'integer',
-             ));
-        $this->hasColumn('bank_id', 'integer', null, array(
              'type' => 'integer',
              ));
         $this->hasColumn('first_name', 'string', 100, array(
@@ -118,10 +100,6 @@ abstract class BaseProfile extends sfDoctrineRecord
              'type' => 'string',
              'length' => 15,
              ));
-        $this->hasColumn('is_membership', 'boolean', null, array(
-             'type' => 'boolean',
-             'default' => true,
-             ));
         $this->hasColumn('phone', 'string', 40, array(
              'type' => 'string',
              'length' => 40,
@@ -145,9 +123,6 @@ abstract class BaseProfile extends sfDoctrineRecord
         $this->hasColumn('locality_id', 'integer', null, array(
              'type' => 'integer',
              ));
-        $this->hasColumn('state_id', 'integer', null, array(
-             'type' => 'integer',
-             ));
 
 
         $this->setAttribute(Doctrine_Core::ATTR_EXPORT, Doctrine_Core::EXPORT_ALL);
@@ -163,15 +138,6 @@ abstract class BaseProfile extends sfDoctrineRecord
              'local' => 'sf_guard_user_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
-
-        $this->hasOne('Bank', array(
-             'local' => 'bank_id',
-             'foreign' => 'id',
-             'onDelete' => 'CASCADE'));
-
-        $this->hasMany('Bill as Bills', array(
-             'local' => 'id',
-             'foreign' => 'profile_id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable(array(
              ));

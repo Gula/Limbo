@@ -8,7 +8,7 @@
  * @package    limbo
  * @subpackage form
  * @author     Damian Suarez / Laura Melo
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
 abstract class BaseMGAlbumForm extends BaseFormDoctrine
 {
@@ -16,7 +16,7 @@ abstract class BaseMGAlbumForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'             => new sfWidgetFormInputHidden(),
-      'author_id'      => new sfWidgetFormInputText(),
+      'author_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Author'), 'add_empty' => true)),
       'title'          => new sfWidgetFormInputText(),
       'description'    => new sfWidgetFormTextarea(),
       'created_at'     => new sfWidgetFormDateTime(),
@@ -25,8 +25,8 @@ abstract class BaseMGAlbumForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'author_id'      => new sfValidatorInteger(array('required' => false)),
+      'id'             => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
+      'author_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Author'), 'required' => false)),
       'title'          => new sfValidatorString(array('max_length' => 100)),
       'description'    => new sfValidatorString(array('required' => false)),
       'created_at'     => new sfValidatorDateTime(),

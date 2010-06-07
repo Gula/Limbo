@@ -6,14 +6,14 @@
  * @package    limbo
  * @subpackage filter
  * @author     Damian Suarez / Laura Melo
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
 abstract class BaseMGPhotoFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
     $this->setWidgets(array(
-      'author_id'      => new sfWidgetFormFilterInput(),
+      'author_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Author'), 'add_empty' => true)),
       'title'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'description'    => new sfWidgetFormFilterInput(),
       'photo'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
@@ -23,7 +23,7 @@ abstract class BaseMGPhotoFormFilter extends BaseFormFilterDoctrine
     ));
 
     $this->setValidators(array(
-      'author_id'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'author_id'      => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Author'), 'column' => 'id')),
       'title'          => new sfValidatorPass(array('required' => false)),
       'description'    => new sfValidatorPass(array('required' => false)),
       'photo'          => new sfValidatorPass(array('required' => false)),
@@ -53,10 +53,8 @@ abstract class BaseMGPhotoFormFilter extends BaseFormFilterDoctrine
       return;
     }
 
-    $query
-      ->leftJoin($query->getRootAlias().'.MGGalleryPhoto MGGalleryPhoto')
-      ->andWhereIn('MGGalleryPhoto.gallery_id', $values)
-    ;
+    $query->leftJoin('r.MGGalleryPhoto MGGalleryPhoto')
+          ->andWhereIn('MGGalleryPhoto.gallery_id', $values);
   }
 
   public function getModelName()
@@ -68,7 +66,7 @@ abstract class BaseMGPhotoFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'             => 'Number',
-      'author_id'      => 'Number',
+      'author_id'      => 'ForeignKey',
       'title'          => 'Text',
       'description'    => 'Text',
       'photo'          => 'Text',
