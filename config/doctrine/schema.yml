@@ -1,0 +1,104 @@
+options:
+  collate: utf8_unicode_ci
+  charset: utf8
+attributes:
+  export: all
+
+Profile:
+  actAs:
+    - Timestampable
+  tableName:                    profile
+  columns:
+    id:                         {type: integer, primary: true, autoincrement: true}
+    sf_guard_user_id:           integer(4)
+    membership_number:          {type: integer}
+    bank_id:                    {type: integer}
+    first_name:                 {type: string(100), notnull: true}
+    last_name:                  {type: string(100), notnull: true}
+    birth_date:                 {type: date}
+    documment_type:             {type: enum, values: [ dni, le ], default: dni}
+    documment_number:           {type: string(15) }
+    is_membership:              {type: boolean, default: true}
+    phone:                      {type: string(40)}
+    movil:                      {type: string(40)}
+    email:                      {type: string(60)}
+    addres:                     {type: string(100)}
+    addres_2:                   {type: string(100)}
+    locality_id:                {type: integer}
+    state_id:                   {type: integer}
+  relations:
+    sfGuardUser:                {local: sf_guard_user_id, foreign: id, foreignType: one, onDelete: CASCADE}
+    Bank:                       {local: bank_id, foreign: id, foreignAlias: Profiles, onDelete: CASCADE}
+
+Bill:
+  actAs:
+    - Timestampable
+  tableName:                    bill
+  columns:
+    id:                         {type: integer, primary: true, autoincrement: true}
+    responsible_id:             {type: integer(4)}
+    profile_id:                 {type: integer}
+    bank_id:                    {type: integer}
+    service_id:                 {type: integer}
+    turning_check:              {type: string(40)}
+    ammount:                    {type: decimal(6)}
+  relations:
+    Profile:                    {local: profile_id, foreign: id, foreignAlias: Bills, onDelete: CASCADE}
+    Responsible:                {local: responsible_id, foreign: id, foreignAlias: Bills, onDelete: CASCADE}
+    Bank:                       {local: bank_id, foreign: id, foreignAlias: Bills, onDelete: CASCADE}
+    Service:                    {local: service_id, foreign: id, foreignAlias: Bills, onDelete: CASCADE}
+
+Service:
+  actAs:
+    - Timestampable
+  tableName:                    service
+  columns:
+    id:                         {type: integer, primary: true, autoincrement: true}
+    name:                       {type: string(40)}
+    description:                {type: clob}
+    service_type_id:            {type: integer}
+  relations:
+    Type:                       {local: service_type_id, foreign: id, foreignAlias: Services, onDelete: CASCADE}
+
+ServiceType:
+  actAs:
+    - Timestampable
+  tableName:                    service_type
+  columns:
+    id:                         {type: integer, primary: true, autoincrement: true}
+    name:                       {type: string(40)}
+    description:                {type: clob}
+
+Bank:
+  actAs:
+    - Timestampable
+  tableName:                    bank
+  columns:
+    id:                         {type: integer, primary: true, autoincrement: true}
+    name:                       {type: string(40)}
+    branch_id:                  {type: integer}
+    sectional_id:               {type: integer}
+  relations:
+    Branch:                     {local: branch_id, foreign: id, foreignAlias: Banks, onDelete: CASCADE}
+
+Sectional:
+  actAs:
+    - Timestampable
+  tableName:                    sectional
+  columns:
+    id:                         {type: integer, primary: true, autoincrement: true}
+    name:                       {type: string(40)}
+
+Branch:
+  actAs:
+    - Timestampable
+  tableName:                    branch
+  columns:
+    id:                         {type: integer, primary: true, autoincrement: true}
+    number:                     {type: integer}
+    description:                {type: string(255)}
+    sectional_id:               {type: integer}
+    locality_id:                {type: integer}
+    state_id:                   {type: integer}
+  relations:
+    Sectional:                  {local: sectional_id, foreign: id, foreignAlias: Branchs, onDelete: CASCADE}

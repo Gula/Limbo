@@ -58,25 +58,25 @@ abstract class BasesfGuardGroupForm extends BaseFormDoctrine
 
     if (isset($this->widgetSchema['users_list']))
     {
-      $this->setDefault('users_list', $this->object->Users->getPrimaryKeys());
+      $this->setDefault('users_list', $this->object->users->getPrimaryKeys());
     }
 
     if (isset($this->widgetSchema['permissions_list']))
     {
-      $this->setDefault('permissions_list', $this->object->Permissions->getPrimaryKeys());
+      $this->setDefault('permissions_list', $this->object->permissions->getPrimaryKeys());
     }
 
   }
 
   protected function doSave($con = null)
   {
-    $this->saveUsersList($con);
-    $this->savePermissionsList($con);
+    $this->saveusersList($con);
+    $this->savepermissionsList($con);
 
     parent::doSave($con);
   }
 
-  public function saveUsersList($con = null)
+  public function saveusersList($con = null)
   {
     if (!$this->isValid())
     {
@@ -94,7 +94,7 @@ abstract class BasesfGuardGroupForm extends BaseFormDoctrine
       $con = $this->getConnection();
     }
 
-    $existing = $this->object->Users->getPrimaryKeys();
+    $existing = $this->object->users->getPrimaryKeys();
     $values = $this->getValue('users_list');
     if (!is_array($values))
     {
@@ -104,17 +104,17 @@ abstract class BasesfGuardGroupForm extends BaseFormDoctrine
     $unlink = array_diff($existing, $values);
     if (count($unlink))
     {
-      $this->object->unlink('Users', array_values($unlink));
+      $this->object->unlink('users', array_values($unlink));
     }
 
     $link = array_diff($values, $existing);
     if (count($link))
     {
-      $this->object->link('Users', array_values($link));
+      $this->object->link('users', array_values($link));
     }
   }
 
-  public function savePermissionsList($con = null)
+  public function savepermissionsList($con = null)
   {
     if (!$this->isValid())
     {
@@ -132,7 +132,7 @@ abstract class BasesfGuardGroupForm extends BaseFormDoctrine
       $con = $this->getConnection();
     }
 
-    $existing = $this->object->Permissions->getPrimaryKeys();
+    $existing = $this->object->permissions->getPrimaryKeys();
     $values = $this->getValue('permissions_list');
     if (!is_array($values))
     {
@@ -142,13 +142,13 @@ abstract class BasesfGuardGroupForm extends BaseFormDoctrine
     $unlink = array_diff($existing, $values);
     if (count($unlink))
     {
-      $this->object->unlink('Permissions', array_values($unlink));
+      $this->object->unlink('permissions', array_values($unlink));
     }
 
     $link = array_diff($values, $existing);
     if (count($link))
     {
-      $this->object->link('Permissions', array_values($link));
+      $this->object->link('permissions', array_values($link));
     }
   }
 

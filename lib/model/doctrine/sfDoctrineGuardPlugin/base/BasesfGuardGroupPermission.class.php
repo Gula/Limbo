@@ -7,17 +7,17 @@
  * 
  * @property integer $group_id
  * @property integer $permission_id
- * @property sfGuardGroup $Group
- * @property sfGuardPermission $Permission
+ * @property sfGuardGroup $sfGuardGroup
+ * @property sfGuardPermission $sfGuardPermission
  * 
- * @method integer                getGroupId()       Returns the current record's "group_id" value
- * @method integer                getPermissionId()  Returns the current record's "permission_id" value
- * @method sfGuardGroup           getGroup()         Returns the current record's "Group" value
- * @method sfGuardPermission      getPermission()    Returns the current record's "Permission" value
- * @method sfGuardGroupPermission setGroupId()       Sets the current record's "group_id" value
- * @method sfGuardGroupPermission setPermissionId()  Sets the current record's "permission_id" value
- * @method sfGuardGroupPermission setGroup()         Sets the current record's "Group" value
- * @method sfGuardGroupPermission setPermission()    Sets the current record's "Permission" value
+ * @method integer                getGroupId()           Returns the current record's "group_id" value
+ * @method integer                getPermissionId()      Returns the current record's "permission_id" value
+ * @method sfGuardGroup           getSfGuardGroup()      Returns the current record's "sfGuardGroup" value
+ * @method sfGuardPermission      getSfGuardPermission() Returns the current record's "sfGuardPermission" value
+ * @method sfGuardGroupPermission setGroupId()           Sets the current record's "group_id" value
+ * @method sfGuardGroupPermission setPermissionId()      Sets the current record's "permission_id" value
+ * @method sfGuardGroupPermission setSfGuardGroup()      Sets the current record's "sfGuardGroup" value
+ * @method sfGuardGroupPermission setSfGuardPermission() Sets the current record's "sfGuardPermission" value
  * 
  * @package    limbo
  * @subpackage model
@@ -29,13 +29,15 @@ abstract class BasesfGuardGroupPermission extends sfDoctrineRecord
     public function setTableDefinition()
     {
         $this->setTableName('sf_guard_group_permission');
-        $this->hasColumn('group_id', 'integer', null, array(
+        $this->hasColumn('group_id', 'integer', 4, array(
              'type' => 'integer',
              'primary' => true,
+             'length' => 4,
              ));
-        $this->hasColumn('permission_id', 'integer', null, array(
+        $this->hasColumn('permission_id', 'integer', 4, array(
              'type' => 'integer',
              'primary' => true,
+             'length' => 4,
              ));
 
         $this->option('symfony', array(
@@ -47,12 +49,12 @@ abstract class BasesfGuardGroupPermission extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('sfGuardGroup as Group', array(
+        $this->hasOne('sfGuardGroup', array(
              'local' => 'group_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
-        $this->hasOne('sfGuardPermission as Permission', array(
+        $this->hasOne('sfGuardPermission', array(
              'local' => 'permission_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));

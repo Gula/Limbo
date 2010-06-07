@@ -7,17 +7,17 @@
  * 
  * @property integer $user_id
  * @property integer $permission_id
- * @property sfGuardUser $User
- * @property sfGuardPermission $Permission
+ * @property sfGuardUser $sfGuardUser
+ * @property sfGuardPermission $sfGuardPermission
  * 
- * @method integer               getUserId()        Returns the current record's "user_id" value
- * @method integer               getPermissionId()  Returns the current record's "permission_id" value
- * @method sfGuardUser           getUser()          Returns the current record's "User" value
- * @method sfGuardPermission     getPermission()    Returns the current record's "Permission" value
- * @method sfGuardUserPermission setUserId()        Sets the current record's "user_id" value
- * @method sfGuardUserPermission setPermissionId()  Sets the current record's "permission_id" value
- * @method sfGuardUserPermission setUser()          Sets the current record's "User" value
- * @method sfGuardUserPermission setPermission()    Sets the current record's "Permission" value
+ * @method integer               getUserId()            Returns the current record's "user_id" value
+ * @method integer               getPermissionId()      Returns the current record's "permission_id" value
+ * @method sfGuardUser           getSfGuardUser()       Returns the current record's "sfGuardUser" value
+ * @method sfGuardPermission     getSfGuardPermission() Returns the current record's "sfGuardPermission" value
+ * @method sfGuardUserPermission setUserId()            Sets the current record's "user_id" value
+ * @method sfGuardUserPermission setPermissionId()      Sets the current record's "permission_id" value
+ * @method sfGuardUserPermission setSfGuardUser()       Sets the current record's "sfGuardUser" value
+ * @method sfGuardUserPermission setSfGuardPermission() Sets the current record's "sfGuardPermission" value
  * 
  * @package    limbo
  * @subpackage model
@@ -29,13 +29,15 @@ abstract class BasesfGuardUserPermission extends sfDoctrineRecord
     public function setTableDefinition()
     {
         $this->setTableName('sf_guard_user_permission');
-        $this->hasColumn('user_id', 'integer', null, array(
+        $this->hasColumn('user_id', 'integer', 4, array(
              'type' => 'integer',
              'primary' => true,
+             'length' => 4,
              ));
-        $this->hasColumn('permission_id', 'integer', null, array(
+        $this->hasColumn('permission_id', 'integer', 4, array(
              'type' => 'integer',
              'primary' => true,
+             'length' => 4,
              ));
 
         $this->option('symfony', array(
@@ -47,12 +49,12 @@ abstract class BasesfGuardUserPermission extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('sfGuardUser as User', array(
+        $this->hasOne('sfGuardUser', array(
              'local' => 'user_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
-        $this->hasOne('sfGuardPermission as Permission', array(
+        $this->hasOne('sfGuardPermission', array(
              'local' => 'permission_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
