@@ -24,6 +24,9 @@ test:
 
 all:
   .settings:
+    default_culture: es_AR
+    i18n: true
+
     # Form security secret (CSRF protection)
     csrf_secret:            d8b09c5b717ab60aed374e355aeab509e62330a4
 
@@ -36,7 +39,7 @@ all:
     # Enable the database manager
     use_database:           true
     
-    enabled_modules:        [default, sfMooDooGroup, sfMooDooUser, sfMooDooPermission, sfMooDooAuth, mooDooTest]
+    enabled_modules:        [default, sfMooDooGroup, sfMooDooUser, sfMooDooPermission, sfMooDooAuth, sfMooDooStyleGuide]
 
   .actions:
     login_module:           sfMooDooAuth

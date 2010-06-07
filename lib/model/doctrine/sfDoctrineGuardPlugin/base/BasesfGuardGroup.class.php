@@ -25,15 +25,9 @@
  * @method sfGuardGroup        setSfGuardGroupPermission() Sets the current record's "sfGuardGroupPermission" collection
  * @method sfGuardGroup        setSfGuardUserGroup()       Sets the current record's "sfGuardUserGroup" collection
  * 
-<<<<<<< HEAD:lib/model/doctrine/sfDoctrineGuardPlugin/base/BasesfGuardGroup.class.php
- * @package    sf_sandbox
- * @subpackage model
- * @author     Your name here
-=======
  * @package    limbo
  * @subpackage model
  * @author     Damian Suarez / Laura Melo
->>>>>>> 17ef5c46e5bef215d27edb1035336323e4129c9c:lib/model/doctrine/sfDoctrineGuardPlugin/base/BasesfGuardGroup.class.php
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasesfGuardGroup extends sfDoctrineRecord

@@ -19,15 +19,9 @@
  * @method sfGuardGroupPermission setGroup()         Sets the current record's "Group" value
  * @method sfGuardGroupPermission setPermission()    Sets the current record's "Permission" value
  * 
-<<<<<<< HEAD:lib/model/doctrine/sfDoctrineGuardPlugin/base/BasesfGuardGroupPermission.class.php
- * @package    sf_sandbox
- * @subpackage model
- * @author     Your name here
-=======
  * @package    limbo
  * @subpackage model
  * @author     Damian Suarez / Laura Melo
->>>>>>> 17ef5c46e5bef215d27edb1035336323e4129c9c:lib/model/doctrine/sfDoctrineGuardPlugin/base/BasesfGuardGroupPermission.class.php
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasesfGuardGroupPermission extends sfDoctrineRecord

@@ -3,9 +3,9 @@
 /**
  * sfMooDooPermission filter form base class.
  *
- * @package    sf_sandbox
+ * @package    limbo
  * @subpackage filter
- * @author     Your name here
+ * @author     Damian Suarez / Laura Melo
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedInheritanceTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
 abstract class BasesfMooDooPermissionFormFilter extends sfGuardPermissionFormFilter
