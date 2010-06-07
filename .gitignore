@@ -1,9 +1,9 @@
-cache/*
-log/*
-config/databases.yml
+project/cache/*
+project/log/*
+project/config/databases.yml
 
 #uploads
-web/uploads/*
+project/web/uploads/*
 
 #mooDooGallery
-web/images/mooDooGallery/*
+project/web/images/mooDooGallery/*
