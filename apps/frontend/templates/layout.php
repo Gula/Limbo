@@ -1,3 +1,4 @@
+<?php use_helper('I18N') ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
@@ -9,6 +10,18 @@
     <?php include_javascripts() ?>
   </head>
   <body>
-    <?php echo $sf_content ?>
+  <div id="wrapper">
+
+      <section id="header">
+        <img id="logo" src="/images/logo.png" />
+        <div id="shine"></div>
+
+        <?php include_partial('sfMooDooStyleGuide/menu') ?>
+        <?php include_partial('sfMooDooStyleGuide/mini-panel') ?>
+      </section>
+       <?php echo $sf_content ?>
+       <?php include_partial('sfMooDooStyleGuide/footer') ?>
+
+    </div>
   </body>
 </html>

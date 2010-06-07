@@ -9,12 +9,11 @@ class ProjectConfiguration extends sfProjectConfiguration
   {
     $this->enablePlugins(
       'sfDoctrinePlugin',
+      'sfFormExtraPlugin',
       'sfDoctrineGuardPlugin',
-      'sfDoctrineMooDooPlugin',
-//      'sfLessPhpPlugin',
-//      'sfFormExtraPlugin',
-//      'sfTCPDFPlugin',
+      'sfLessPhpPlugin',
       'sfImageTransformPlugin',
+      'sfDoctrineMooDooPlugin',
       'sfMooDooGalleryPlugin'
     );
   }
