@@ -6,7 +6,7 @@
  * @package    limbo
  * @subpackage filter
  * @author     Damian Suarez / Laura Melo
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
 abstract class BaseMGAlbumFormFilter extends BaseFormFilterDoctrine
 {
@@ -51,8 +51,10 @@ abstract class BaseMGAlbumFormFilter extends BaseFormFilterDoctrine
       return;
     }
 
-    $query->leftJoin('r.MGAlbumGallery MGAlbumGallery')
-          ->andWhereIn('MGAlbumGallery.gallery_id', $values);
+    $query
+      ->leftJoin($query->getRootAlias().'.MGAlbumGallery MGAlbumGallery')
+      ->andWhereIn('MGAlbumGallery.gallery_id', $values)
+    ;
   }
 
   public function getModelName()
